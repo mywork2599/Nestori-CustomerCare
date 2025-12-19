@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestori - Customer Care Login</title>
+    <link rel="icon" type="image/x-icon" href="favicon_Nestori/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_Nestori/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_Nestori/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_Nestori/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon_Nestori/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon_Nestori/android-chrome-512x512.png">
+    <link rel="manifest" href="favicon_Nestori/site.webmanifest">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="support.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 5rem auto;
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .logo h1 {
+            font-family: 'Monoton', cursive;
+            color: #54a464;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container bg-white">
+            <div class="logo">
+                <h1>Nestori</h1>
+                <p class="text-muted">Customer Care Portal</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="employeeId">Employee ID</label>
+                    <input type="text" class="form-control" id="employeeId" placeholder="Enter your employee ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="#" id="forgotPassword">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').submit(function(e) {
+                e.preventDefault();
+                var employeeId = $('#employeeId').val();
+                var password = $('#password').val();
+
+                // Simple authentication (in real app, this would be server-side)
+                if (employeeId && password) {
+                    // Store user info in localStorage
+                    localStorage.setItem('loggedInUser', employeeId);
+                    localStorage.setItem('userName', 'John Doe'); // In real app, fetch from server
+
+                    // Redirect to dashboard
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Please enter valid credentials');
+                }
+            });
+
+            $('#forgotPassword').click(function(e) {
+                e.preventDefault();
+                alert('Password reset functionality would be implemented here');
+            });
+        });
+    </script>
+</body>
+</html>

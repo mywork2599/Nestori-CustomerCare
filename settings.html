@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestori - Customer Care Settings</title>
+    <link rel="icon" type="image/x-icon" href="favicon_Nestori/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_Nestori/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_Nestori/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_Nestori/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon_Nestori/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon_Nestori/android-chrome-512x512.png">
+    <link rel="manifest" href="favicon_Nestori/site.webmanifest">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand logo" href="#">Nestori</a>
+                <div class="navbar-nav ml-auto">
+                    <span class="navbar-text">Customer Care Portal</span>
+                    <div class="dropdown" id="userMenu">
+                        <button class="btn btn-outline-success ml-3 dropdown-toggle" type="button" id="userBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Employee Login
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userBtn">
+                            <a class="dropdown-item" href="#" id="logoutBtn">Logout</a>
+                            <a class="dropdown-item" href="#" id="helpBtn">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="mb-4">Customer Care Portal</h4>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a class="nav-link" href="tickets.html"><i class="fas fa-ticket-alt"></i> Tickets</a>
+            <a class="nav-link" href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a class="nav-link active" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="mb-4"><i class="fas fa-cog"></i> Settings</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Profile Settings</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="profileForm">
+                                <div class="form-group">
+                                    <label for="employeeName">Full Name</label>
+                                    <input type="text" class="form-control" id="employeeName" value="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="employeeEmail">Email</label>
+                                    <input type="email" class="form-control" id="employeeEmail" value="john.doe@nestori.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="employeePhone">Phone</label>
+                                    <input type="tel" class="form-control" id="employeePhone" value="+1-555-0123" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="employeeDepartment">Department</label>
+                                    <select class="form-control" id="employeeDepartment" required>
+                                        <option value="support">Customer Support</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="billing">Billing</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5>Notification Preferences</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="notificationForm">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                    <label class="form-check-label" for="emailNotifications">
+                                        Email notifications for new tickets
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                    <label class="form-check-label" for="smsNotifications">
+                                        SMS notifications for urgent tickets
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
+                                    <label class="form-check-label" for="pushNotifications">
+                                        Browser push notifications
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Save Preferences</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Quick Actions</h5>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-outline-primary btn-block mb-2">Change Password</button>
+                            <button class="btn btn-outline-secondary btn-block mb-2">Export Data</button>
+                            <button class="btn btn-outline-danger btn-block">Delete Account</button>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5>System Status</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><i class="fas fa-circle text-success"></i> System Online</p>
+                            <p><i class="fas fa-circle text-success"></i> Database Connected</p>
+                            <p><i class="fas fa-circle text-success"></i> Email Service Active</p>
+                            <p><i class="fas fa-circle text-warning"></i> WhatsApp Service Limited</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <span>© 2025 Nestori. Internal Use Only.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="support.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#profileForm').submit(function(e) {
+                e.preventDefault();
+                alert('Profile updated successfully!');
+            });
+
+            $('#notificationForm').submit(function(e) {
+                e.preventDefault();
+                alert('Notification preferences saved!');
+            });
+        });
+    </script>
+</body>
+</html>

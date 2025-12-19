@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestori - Customer Care Portal</title>
+    <link rel="icon" type="image/x-icon" href="favicon_Nestori/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_Nestori/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_Nestori/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_Nestori/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon_Nestori/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon_Nestori/android-chrome-512x512.png">
+    <link rel="manifest" href="favicon_Nestori/site.webmanifest">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand logo" href="#">Nestori</a>
+                <div class="navbar-nav ml-auto">
+                    <span class="navbar-text">Customer Care Portal</span>
+                    <div class="dropdown" id="userMenu">
+                        <button class="btn btn-outline-success ml-3 dropdown-toggle" type="button" id="userBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Employee Login
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userBtn">
+                            <a class="dropdown-item" href="#" id="logoutBtn">Logout</a>
+                            <a class="dropdown-item" href="#" id="helpBtn">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="mb-4">Customer Care Portal</h4>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a class="nav-link" href="tickets.html"><i class="fas fa-ticket-alt"></i> Tickets</a>
+            <a class="nav-link" href="analytics.html"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a class="nav-link" href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1 class="mb-4"><i class="fas fa-headset"></i> Customer Care Portal</h1>
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addTicketModal">Create New Ticket</button>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Support Tickets</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Ticket ID</th>
+                                    <th>Customer Type</th>
+                                    <th>Issue</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Actions</th>
+                                    <th>Communication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>T001</td>
+                                    <td>Landlord</td>
+                                    <td>Property listing issue</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                    <td>High</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-success">Resolve</button>
+                                        <button class="btn btn-sm btn-primary">Update</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#mailModal" data-ticket="T001"><i class="fas fa-envelope"></i> Mail</button>
+                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#messageModal" data-ticket="T001"><i class="fas fa-comment"></i> Message</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T002</td>
+                                    <td>Tenant</td>
+                                    <td>Payment query</td>
+                                    <td><span class="badge badge-info">In Progress</span></td>
+                                    <td>Medium</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-success">Resolve</button>
+                                        <button class="btn btn-sm btn-primary">Update</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#mailModal" data-ticket="T002"><i class="fas fa-envelope"></i> Mail</button>
+                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#messageModal" data-ticket="T002"><i class="fas fa-comment"></i> Message</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>T003</td>
+                                    <td>Roommate</td>
+                                    <td>Match verification</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>Low</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">View</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#mailModal" data-ticket="T003"><i class="fas fa-envelope"></i> Mail</button>
+                                        <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#messageModal" data-ticket="T003"><i class="fas fa-comment"></i> Message</button>
+                                    </td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <span>© 2025 Nestori. Internal Use Only.</span>
+        </div>
+    </footer>
+
+    <!-- Add Ticket Modal -->
+    <div class="modal fade" id="addTicketModal" tabindex="-1" role="dialog" aria-labelledby="addTicketModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTicketModalLabel">Create New Ticket</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addTicketForm">
+                        <div class="form-group">
+                            <label for="ticketCustomerType">Customer Type</label>
+                            <select class="form-control" id="ticketCustomerType" required>
+                                <option value="">Select Type</option>
+                                <option value="landlord">Landlord</option>
+                                <option value="tenant">Tenant</option>
+                                <option value="roommate">Roommate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ticketIssue">Issue Description</label>
+                            <textarea class="form-control" id="ticketIssue" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ticketPriority">Priority</label>
+                            <select class="form-control" id="ticketPriority" required>
+                                <option value="">Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Ticket</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mail Modal -->
+    <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="mailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mailModalLabel">Send Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="mailForm">
+                        <div class="form-group">
+                            <label for="mailTo">To</label>
+                            <input type="email" class="form-control" id="mailTo" placeholder="customer@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mailSubject">Subject</label>
+                            <input type="text" class="form-control" id="mailSubject" placeholder="Email Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mailBody">Message</label>
+                            <textarea class="form-control" id="mailBody" rows="4" placeholder="Email content..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Email</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Send Message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <label for="messageTo">To</label>
+                            <input type="text" class="form-control" id="messageTo" placeholder="Customer Name or ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsappNumber">WhatsApp Number</label>
+                            <input type="text" class="form-control" id="whatsappNumber" placeholder="e.g., +1234567890" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="messageBody">Message</label>
+                            <textarea class="form-control" id="messageBody" rows="4" placeholder="Message content..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="support.js"></script>
+</body>
+</html>
